@@ -1,0 +1,100 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.card1 {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "imageone" "textone" "statsone";
+  font-family: roboto;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 15px 15px rgba(22, 119, 65, 0.9);
+  /* x-offset y-offset blur-radius */
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  margin-right: 50px;
+}
+.card1:hover {
+  transform: scale(1.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+.image1 {
+  grid-area: imageone;
+  background: url("img.png");
+  width: 250px;
+  margin-left: 23px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+}
+.t1 {
+  font-size: 3vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(39, 222, 121);
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  opacity: 0.8;
+  visibility: hidden;
+  border-radius: 18px;
+}
+.card1:hover .t1 {
+  visibility: visible;
+}
+.stats {
+  grid-area: statsone;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgba(47, 222, 213, 0.9);
+}
+.stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+}
+.stats .type {
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.stats .value {
+  font-size: 22px;
+  font-weight: 500;
+}
+.text1 {
+  grid-area: textone;
+  margin: 25px;
+}
+.text1 p {
+  font-size: 1.8vw;
+  font-weight: 300;
+  color: grey;
+}
+.text1 h1 {
+  margin-top: 0px;
+  font-size: 280x;
+}

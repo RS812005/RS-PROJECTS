@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Question Page</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <form class="question-form">
+          <label for="name">What is your name?</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <button type="button" onclick="verify()" class="submit-button">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="container1" style="display: none">
+        <form class="question-form">
+          <button type="button" class="click-button">
+            <a href="final.html" target="_blank"></a>Click to view
+          </button>
+        </form>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script>
+      function verify() {
+        // const submitButton = document.getElementsByClassName("submit-button");
+        // const name = document.getElementById("name").value;
+        // const encrypt_name = CryptoJS.HmacSHA256(name, "secret_key");
+        // console.log(encrypt_name.toString(CryptoJS.enc.Hex));
+        for (let i = 0; i < 100; i++) {
+          const name = document.getElementById("name").value;
+          const encrypt_name = CryptoJS.HmacSHA256(name, "secret_key");
+          console.log(encrypt_name.toString(CryptoJS.enc.Hex));
+          let username = "DEVS";
+          let encrypt_username = CryptoJS.HmacSHA256(
+            username + i,
+            "secret_key"
+          );
+          if (
+            encrypt_name.toString(CryptoJS.enc.Hex) ==
+            encrypt_username.toString(CryptoJS.enc.Hex)
+          ) {
+            // const container = document.getElementsByClassName("container");
+            // container.style.display = "none";
+            // const container1 = document.getElementsByClassName("container1");
+            // container1.style.display = "block";
+            // document.getElementsByClassName("container").style.display = "none";
+            // document.getElementsByClassName("container1").style.display = "block";
+            console.log("ALRIGHT");
+            redirectToFinal();
+          } else {
+            // alert("Please submit valid credentials");
+            console.log("Invalid");
+          }
+        }
+        function redirectToFinal() {
+          window.location.href = "final.html";
+        }
+      }
+    </script>
+  </body>
+</html>
